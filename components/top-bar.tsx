@@ -25,7 +25,7 @@ export function TopBar() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <header className="fixed z-20 flex flex-row items-center justify-between px-6 py-2 w-full">
+    <header className="fixed z-20 flex flex-row items-center justify-between px-6 py-1 w-full backdrop-blur-xl ">
       <NavigationMenu>
         <NavigationMenuList>
           {navItems.map((item) => (
