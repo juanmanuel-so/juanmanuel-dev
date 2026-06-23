@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { Card } from "../ui/card"
+import { motion } from "motion/react"
 type Skill = {
   x: number
   y: number
@@ -13,6 +14,8 @@ type Skill = {
   height: number
 
   label: string
+
+  dragging?: boolean
 }
 
 const skillsList: Skill[] = [
@@ -25,6 +28,7 @@ const Pool = () => {
   const skills = useRef<Skill[]>(skillsList)
   const cardRefs = useRef<HTMLDivElement[]>([])
   const poolRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
 
     let frame: number
@@ -40,7 +44,8 @@ const Pool = () => {
       for (let i = 0; i < skills.current.length; i++) {
 
         const skill = skills.current[i]
-
+        if (skill.dragging)
+          continue
         skill.x += skill.vx
         skill.y += skill.vy
 
@@ -83,15 +88,40 @@ const Pool = () => {
     <Card ref={poolRef} className="w-full h-full">
       {
         skillsList.map((item, index) => (
-          <div
+          <motion.div
+            drag
+            dragMomentum={false}
+            dragElastic={0}
+            onDragStart={() => {
+              skills.current[index].dragging = true
+            }}
+            onDragEnd={(event, info) => {
+      
+              const skill = skills.current[index]
+      
+              skill.dragging = false
+      
+              const element = cardRefs.current[index]
+      
+              const matrix = new DOMMatrix(
+                getComputedStyle(element).transform
+              )
+      
+              skill.x = matrix.m41
+              skill.y = matrix.m42
+      
+              skill.vx = info.velocity.x * 0.01
+              skill.vy = info.velocity.y * 0.01
+            }}
             ref={(el) => {
               if (el)
                 cardRefs.current[index] = el
             }}
-            key={index} className="absolute p-2  rounded-sm shadow-primary/20 shadow-sm bg-background backdrop-blur-md w-fit h-fit"
+            key={index}
+            className="absolute p-2  rounded-sm shadow-primary/20 shadow-sm bg-background backdrop-blur-md w-fit h-fit"
           >
             {item.label}
-          </div>
+          </motion.div>
         ))
       }
     </Card>
