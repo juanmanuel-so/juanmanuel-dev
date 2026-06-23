@@ -12,22 +12,22 @@ const stack = [
   {
     name: 'Next',
     description: 'Mi herramienta favorita y elección principal para desarrollar un frontend robusto, moderno y escalable.',
-    image: '/nextjs.svg',
+    icon: 'https://thesvg.org/icons/nextdotjs/default.svg',
   },
   {
     name: 'PostgreSQL',
-    description: 'La biblioteca de JavaScript que impulsa mi desarrollo frontend, permitiéndome crear interfaces de usuario dinámicas y eficientes.',
-    image: '/react.svg',
+    description: 'Una base de datos relacional confiable.',
+    icon: "https://thesvg.org/icons/postgresql/default.svg",
   },
   {
     name: 'Tailwind CSS',
-    description: 'Mi herramienta de diseño preferida para crear interfaces de usuario modernas y responsivas con facilidad.',
-    image: '/tailwind.svg',
+    description: 'La librería que me hace sentir entusiasmo por el frontend.',
+    icon: 'https://thesvg.org/icons/tailwind-css/default.svg',
   },
   {
     name: 'Prisma',
-    description: 'Mi ORM favorito para interactuar con bases de datos de manera eficiente y segura.',
-    image: '/prisma.svg',
+    description: 'Sin duda mi ORM favorito, facil de usar, facil de entender, y muy potente.',
+    icon: 'https://thesvg.org/icons/prisma/default.svg',
   },
 
 ]
@@ -35,24 +35,25 @@ export function Stack() {
   return (
     <Carousel
       opts={{
-        align: "center",
+        align: "start",
       }}
       orientation="vertical"
       className="w-full "
     >
+
       <CarouselContent className="-mt-1  h-120">
         {stack.map((tool, index) => (
           <CarouselItem key={index} className="basis-1/2 pt-1">
             <div className="p-1">
-              <Card className="bg-linear-to-bl from-gradient to-gradient-end h-60">
-                <CardContent className="flex items-center justify-center p-6">
-                  <div className="flex flex-col items-center gap-4">
+              <Card className="bg-linear-to-bl from-gradient-start to-gradient-end h-60 flex justify-center items-center">
+                <CardContent className="flex items-center justify-center p-6 w-full ">
+                  <div className="flex flex-row items-center justify-evenly gap-4 w-full ">
                     <Image
-                      src={tool.image}
+                      src={tool.icon}
                       alt={tool.name}
-                      width={80}
-                      height={80}
-                      className="h-12 w-12"
+                      width={120}
+                      height={120}
+                      className="h-24 w-24 drop-shadow-sm"
                     />
                     <div className="text-center">
                       <h3 className="text-lg font-medium">{tool.name}</h3>
@@ -67,6 +68,7 @@ export function Stack() {
           </CarouselItem>
         ))}
       </CarouselContent>
+
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>

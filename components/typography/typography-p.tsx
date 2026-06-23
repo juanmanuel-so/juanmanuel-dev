@@ -4,7 +4,7 @@ export function TypographyP({children, className}:{children:string, className?: 
   return (
     <p className={
       cn(
-        'leading-7 not-first:mt-6 ',
+        'leading-7 not-first:mt-6 text-md',
         className
       )
     } >

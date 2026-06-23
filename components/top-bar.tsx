@@ -14,8 +14,8 @@ import { Button } from "@/components/ui/button"
 import React from "react"
 
 const navItems = [
-  { title: "Sobre mí", href: "/#sobre-mi" },
-  { title: "Experiencia", href: "/#experiencia" },
+  { title: "Sobre mí", href: "/#presentacion" },
+  { title: "Stack", href: "/#stack" },
   { title: "Educación", href: "/#educacion" },
   { title: "Habilidades", href: "/#habilidades" },
   { title: "Contacto", href: "/#contacto" },
@@ -25,12 +25,12 @@ export function TopBar() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <header className="fixed z-20 flex flex-row items-center justify-between px-6 py-1 w-full backdrop-blur-xl ">
+    <header className="fixed z-20 flex flex-row items-center justify-between px-6 py-1 w-full backdrop-blur-xl bg-linear-to-br from-gradient-start/50 to-gradient-end/50 drop-shadow-xs ">
       <NavigationMenu>
         <NavigationMenuList>
           {navItems.map((item) => (
             <NavigationMenuItem key={item.href}>
-              <NavigationMenuLink href={item.href} className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink href={item.href} className={navigationMenuTriggerStyle()+ ' text-sm'}>
                 {item.title}
               </NavigationMenuLink>
             </NavigationMenuItem>
