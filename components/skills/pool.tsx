@@ -69,11 +69,6 @@ const Pool = () => {
           skill.vy *= -1
         }
 
-
-        const element = cardRefs.current[i]
-
-        element.style.transform =
-          `translate(${skill.x}px, ${skill.y}px)`
       }
 
       frame = requestAnimationFrame(update)
@@ -89,29 +84,33 @@ const Pool = () => {
       {
         skillsList.map((item, index) => (
           <motion.div
+            style={{
+              x: item.x,
+              y: item.y
+            }}
+            translate="yes"
             drag
             dragMomentum={false}
             dragElastic={0}
             onDragStart={() => {
               skills.current[index].dragging = true
+
             }}
             onDragEnd={(event, info) => {
-      
+
               const skill = skills.current[index]
-      
               skill.dragging = false
-      
-              const element = cardRefs.current[index]
-      
-              const matrix = new DOMMatrix(
-                getComputedStyle(element).transform
-              )
-      
-              skill.x = matrix.m41
-              skill.y = matrix.m42
-      
+
+              skill.x = skill.x + info.offset.x
+              skill.y = skill.y + info.offset.y
+
               skill.vx = info.velocity.x * 0.01
               skill.vy = info.velocity.y * 0.01
+            }}
+            onDrag={(event, info) => {
+              const skill = skills.current[index]
+              skill.x = skill.x + info.delta.x
+              skill.y = skill.y + info.delta.y
             }}
             ref={(el) => {
               if (el)
