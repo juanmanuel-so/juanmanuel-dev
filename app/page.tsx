@@ -1,3 +1,5 @@
+import { LavaLampBackground } from "@/components/background";
+import { Contact } from "@/components/contact";
 import { Focus } from "@/components/focus";
 import Piano from "@/components/piano/piano";
 import Pool, { Skill } from "@/components/skills/pool";
@@ -33,8 +35,7 @@ const hardSkills: Skill[] = [
 ]
 export default function Home() {
   return (
-    <main className="grid grid-cols-1 absolute flex-1 items-center justify-center h-dvh overflow-y-auto w-full snap-y snap-mandatory scroll-smooth">
-
+    <main className="grid grid-cols-1 absolute flex-1 items-center justify-center h-dvh overflow-y-auto w-full snap-y snap-mandatory scroll-smooth bg-background/65 backdrop-blur-xl">
       <section id="presentacion" className="flex h-dvh w-full flex-col items-center justify-center snap-start ">
 
         <div className="flex flex-col lg:flex-row space-x-12 lg:justify-center items-center w-full ">
@@ -126,6 +127,17 @@ export default function Home() {
           </div>
         </Tabs>
 
+      </section>
+      <section id="contacto" className="flex h-dvh w-full flex-col items-center justify-center snap-start space-y-8">
+        <div className="flex flex-col items-center gap-6 text-center w-2xl max-w-full">
+          <TypographyH1>
+            Contacto
+          </TypographyH1>
+          <TypographyP>
+            ¿Tienes un proyecto en mente o quieres conversar? Puedes encontrarme en las siguientes plataformas.
+          </TypographyP>
+        </div>
+        <Contact />
       </section>
     </main>
   );

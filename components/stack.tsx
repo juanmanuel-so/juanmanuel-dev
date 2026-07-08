@@ -45,7 +45,7 @@ export function Stack() {
         {stack.map((tool, index) => (
           <CarouselItem key={index} className="basis-1/2 pt-1">
             <div className="p-1">
-              <Card className="bg-linear-to-bl from-gradient-start to-gradient-end h-60 flex justify-center items-center">
+              <Card className=" h-60 flex justify-center items-center">
                 <CardContent className="flex items-center justify-center p-6 w-full ">
                   <div className="flex flex-row items-center justify-evenly gap-4 w-full ">
                     <Image

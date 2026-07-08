@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { TopBar } from "@/components/top-bar";
 import { ThemeProvider } from "@teispace/next-themes";
 import { getTheme, } from '@teispace/next-themes/server';
+import { LavaLampBackground } from "@/components/background";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -37,6 +38,9 @@ export default async function RootLayout({
     >
 
       <body className="min-h-full flex flex-col ">
+        <div className="fixed inset-0 -z-50 ">
+          <LavaLampBackground />
+        </div>
         <ThemeProvider attribute="class" initialTheme={initialTheme ?? undefined}>
           <TopBar />
           {children}

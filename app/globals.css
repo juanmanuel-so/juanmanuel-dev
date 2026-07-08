@@ -51,6 +51,8 @@
 }
 
 :root {
+  --lava-from: oklch(0.698126 0.171378 243.7711);
+  --lava-to: oklch(0.4317 0.1096 245.63);
   --background: oklch(0.9622 0.0122 276.1) ;
   --foreground: oklch(0.1392 0.0574 284.95) ;
   --card: oklch(0.9451 0.0174 264.48);
@@ -88,6 +90,8 @@
 }
 
 .dark {
+  --lava-from: oklch(0.680287 0.214372 39.8015);
+  --lava-to: oklch(0.8111 0.1189 52.4);
   --background: oklch(0.1123 0.0652 286.04);
   --foreground: oklch(0.9667 0.012 286.17);
   --gradient-start: oklch(0.1702 0.0541 280.64);
