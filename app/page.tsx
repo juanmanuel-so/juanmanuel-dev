@@ -1,13 +1,36 @@
 import { Focus } from "@/components/focus";
 import Piano from "@/components/piano/piano";
-import Pool from "@/components/skills/pool";
+import Pool, { Skill } from "@/components/skills/pool";
 import { Stack } from "@/components/stack";
 import { TypographyH1 } from "@/components/typography/typography-h1";
 import { TypographyP } from "@/components/typography/typography-p";
-import { Card } from "@/components/ui/card";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 
+
+const softSkills: Skill[] = [
+  { x: 0, y: 0, vx: 0.8, vy: 0.8, width: 130, height: 50, label: 'Aprendizaje Rápido' },
+  { x: 200, y: 100, vx: -0.8, vy: 0.8, width: 110, height: 50, label: 'Creatividad' },
+  { x: 400, y: 200, vx: 0.8, vy: -0.8, width: 100, height: 50, label: 'Liderazgo' },
+  { x: 150, y: 250, vx: -0.8, vy: -0.8, width: 120, height: 50, label: 'Innovación' },
+  { x: 500, y: 50, vx: 0.8, vy: 0.8, width: 170, height: 50, label: 'Proactividad' },
+]
+const hardSkills: Skill[] = [
+  { x: 0, y: 0, vx: 0.8, vy: 0.8, width: 110, height: 50, label: 'TypeScript' },
+  { x: 120, y: 80, vx: -0.8, vy: 0.8, width: 90, height: 50, label: 'React' },
+  { x: 260, y: 40, vx: 0.8, vy: -0.8, width: 100, height: 50, label: 'Next.js' },
+  { x: 420, y: 120, vx: -0.8, vy: -0.8, width: 100, height: 50, label: 'NestJS' },
+  { x: 560, y: 30, vx: 0.8, vy: 0.8, width: 110, height: 50, label: 'PostgreSQL' },
+  { x: 80, y: 220, vx: -0.8, vy: 0.8, width: 90, height: 50, label: 'Prisma' },
+  { x: 250, y: 200, vx: 0.8, vy: 0.8, width: 120, height: 50, label: 'Tailwind CSS' },
+  { x: 430, y: 250, vx: -0.8, vy: 0.8, width: 110, height: 50, label: 'MongoDB' },
+  { x: 600, y: 180, vx: 0.8, vy: -0.8, width: 90, height: 50, label: 'Docker' },
+  { x: 40, y: 340, vx: -0.8, vy: -0.8, width: 100, height: 50, label: 'Node.js' },
+  { x: 200, y: 340, vx: 0.8, vy: -0.8, width: 90, height: 50, label: 'Git' },
+  { x: 340, y: 330, vx: -0.8, vy: 0.8, width: 100, height: 50, label: 'SQL Server' },
+  { x: 500, y: 340, vx: 0.8, vy: 0.8, width: 100, height: 50, label: 'TensorFlow' },
+]
 export default function Home() {
   return (
     <main className="grid grid-cols-1 absolute flex-1 items-center justify-center h-dvh overflow-y-auto w-full snap-y snap-mandatory scroll-smooth">
@@ -59,8 +82,8 @@ export default function Home() {
         <Tabs defaultValue="overview" className="flex flex-col lg:flex-row space-x-12 lg:justify-center items-center h-fit">
           <TabsList variant="line">
             <TabsTrigger value="enfoque">Enfoque</TabsTrigger>
-            <TabsTrigger value="habilidades">Habilidades</TabsTrigger>
-            <TabsTrigger value="reports">Reports</TabsTrigger>
+            <TabsTrigger value="habilidades">Habilidades blandas</TabsTrigger>
+            <TabsTrigger value="tecnicas">Habilidades técnicas</TabsTrigger>
           </TabsList>
           <div className="h-72">
             <TabsContent value="enfoque" className="flex flex-row space-x-4">
@@ -74,14 +97,29 @@ export default function Home() {
               </div>
               <Focus />
             </TabsContent>
-            <TabsContent value="habilidades" className="flex flex-col justify-center items-center space-x-4">
-              <TypographyH1 className="text-left">
-                Habilidades blandas
-              </TypographyH1>
+            <TabsContent value="habilidades" className="flex flex-row justify-center items-center space-x-4">
               <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left w-2xl ">
-               
-                <div className="h-60 w-full">
-                  <Pool />
+                <TypographyH1 className="text-center w-full">
+                  Habilidades blandas
+                </TypographyH1>
+                <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left w-2xl ">
+
+                  <div className="h-60 w-full">
+                    <Pool skillsList={softSkills} />
+                  </div>
+                </div>
+              </div>
+
+            </TabsContent>
+            <TabsContent value="tecnicas" className="flex flex-row justify-center items-center space-x-4">
+              <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left w-2xl ">
+                <TypographyH1 className="text-center w-full">
+                  Habilidades técnicas
+                </TypographyH1>
+                <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left w-2xl ">
+                  <div className="h-60 w-full">
+                    <Pool skillsList={hardSkills} />
+                  </div>
                 </div>
               </div>
             </TabsContent>

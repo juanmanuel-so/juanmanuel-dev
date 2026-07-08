@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import { Card } from "../ui/card"
 import { motion } from "motion/react"
-type Skill = {
+export type Skill = {
   x: number
   y: number
 
@@ -18,13 +18,8 @@ type Skill = {
   dragging?: boolean
 }
 
-const skillsList: Skill[] = [
-  { x: 0, y: 0, vx: 0.8, vy: 0.8, width: 100, height: 50, label: 'Aprendizaje Rápido' },
-  { x: 200, y: 100, vx: -0.8, vy: 0.8, width: 100, height: 50, label: 'Creatividad' },
-  { x: 400, y: 200, vx: 0.8, vy: -0.8, width: 100, height: 50, label: 'Liderazgo' },
-]
 
-const Pool = () => {
+const Pool = ({skillsList}:{skillsList: Skill[]}) => {
   const skills = useRef<Skill[]>(skillsList)
   const cardRefs = useRef<HTMLDivElement[]>([])
   const poolRef = useRef<HTMLDivElement>(null)
