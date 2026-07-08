@@ -3,7 +3,7 @@ import PianoKey from "./piano-key"
 
 const Piano = () => {
   return (
-    <div className="flex flex-row items-start bg bg-slate-300 p-3 rounded-2xl h-fit drop-shadow-sm" >
+    <div className="flex flex-row items-start bg-slate-400/20 backdrop-md p-3 rounded-2xl h-fit drop-shadow-sm" >
       <PianoKey note="C" />
       <PianoKey note="C#" isBlack/>
       <PianoKey note="D" />
