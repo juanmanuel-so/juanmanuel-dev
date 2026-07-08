@@ -69,6 +69,11 @@ const Pool = () => {
           skill.vy *= -1
         }
 
+
+        const element = cardRefs.current[i]
+
+        element.style.transform =
+          `translate(${skill.x}px, ${skill.y}px)`
       }
 
       frame = requestAnimationFrame(update)
