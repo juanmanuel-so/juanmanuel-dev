@@ -16,8 +16,7 @@ import React from "react"
 const navItems = [
   { title: "Sobre mí", href: "/#presentacion" },
   { title: "Stack", href: "/#stack" },
-  { title: "Educación", href: "/#educacion" },
-  { title: "Habilidades", href: "/#habilidades" },
+  { title: "Enfoque y habilidades", href: "/#enfoque" },
   { title: "Contacto", href: "/#contacto" },
 ]
 

@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex h-dvh w-full flex-col items-center justify-center snap-start space-y-6">
+      <section id="enfoque" className="flex h-dvh w-full flex-col items-center justify-center snap-start space-y-6">
         <Tabs defaultValue="overview" className="flex flex-col lg:flex-row space-x-12 lg:justify-center items-center h-fit">
           <TabsList variant="line">
             <TabsTrigger value="enfoque">Enfoque</TabsTrigger>
