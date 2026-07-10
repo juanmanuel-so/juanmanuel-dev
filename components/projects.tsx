@@ -5,6 +5,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Github01Icon } from "@hugeicons/core-free-icons"
 import Image from "next/image"
+import Link from "next/link"
 
 type Project = {
   name: string
@@ -31,7 +32,7 @@ export function Projects() {
   return (
     <div className="flex flex-col gap-6 sm:flex-row">
       {projects.map((project) => (
-        <a
+        <Link
           key={project.name}
           href={project.href}
           target="_blank"
@@ -76,7 +77,7 @@ export function Projects() {
               </div>
             </CardContent>
           </Card>
-        </a>
+        </Link>
       ))}
     </div>
   )
