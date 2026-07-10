@@ -1,6 +1,7 @@
-import { LavaLampBackground } from "@/components/background";
+
 import { Contact } from "@/components/contact";
 import { Focus } from "@/components/focus";
+import { Projects } from "@/components/projects";
 import Piano from "@/components/piano/piano";
 import Pool, { Skill } from "@/components/skills/pool";
 import { Stack } from "@/components/stack";
@@ -127,6 +128,17 @@ export default function Home() {
           </div>
         </Tabs>
 
+      </section>
+      <section id="proyectos" className="flex h-dvh w-full flex-col items-center justify-center snap-start space-y-8">
+        <div className="flex flex-col items-center gap-6 text-center w-2xl max-w-full">
+          <TypographyH1>
+            Proyectos
+          </TypographyH1>
+          <TypographyP>
+            Algunos de los proyectos en los que he trabajado. Código abierto y disponible para explorar.
+          </TypographyP>
+        </div>
+        <Projects />
       </section>
       <section id="contacto" className="flex h-dvh w-full flex-col items-center justify-center snap-start space-y-8">
         <div className="flex flex-col items-center gap-6 text-center w-2xl max-w-full">

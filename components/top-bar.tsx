@@ -17,6 +17,7 @@ const navItems = [
   { title: "Sobre mí", href: "/#presentacion" },
   { title: "Stack", href: "/#stack" },
   { title: "Enfoque y habilidades", href: "/#enfoque" },
+  { title: "Proyectos", href: "/#proyectos" },
   { title: "Contacto", href: "/#contacto" },
 ]
 
